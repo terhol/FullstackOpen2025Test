@@ -1,33 +1,16 @@
-const Hello = (props) => {
-  console.log(props);
-  return (
-    <div>
-      <p>
-        Hello {props.name}, you are {props.age} old.
-      </p>
-    </div>
-  );
-};
-
-const Footer = () => {
-  return <div>App created in 2025 as a part of a course.</div>;
-};
+import { useState } from "react";
 
 const App = () => {
-  const friends = [
-    { name: "Peter", age: 30 },
-    { name: "Maya", age: 33 },
-  ];
+  const [counter, setCounter] = useState(0);
+  const increaseByOne = () => setCounter(counter + 1);
+  const setToZero = () => setCounter(0);
+
   return (
     <div>
-      <p>
-        {friends[0].name} {friends[0].age}
-      </p>
-      <p>
-        {friends[1].name} {friends[1].age}
-      </p>
+      <div>{counter}</div>
+      <button onClick={increaseByOne}>Plus</button>
+      <button onClick={setToZero}>Reset</button>
     </div>
   );
 };
-
 export default App;
